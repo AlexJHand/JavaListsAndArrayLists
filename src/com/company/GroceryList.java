@@ -27,6 +27,7 @@ public class GroceryList {
     }
 
     public String findItem(String searchItem) {
-        boolean exists groceryList.contains(searchItem);
+//        boolean exists groceryList.contains(searchItem);
+        int position = groceryList.indexOf(searchItem);
     }
 }
