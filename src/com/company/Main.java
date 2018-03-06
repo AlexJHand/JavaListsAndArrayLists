@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -36,6 +37,8 @@ public class Main {
                     searchForItem();
                     break;
                 case 6:
+                    processArrayList();
+                case 7:
                     quit = true;
                     break;
             }
@@ -59,16 +62,16 @@ public class Main {
     }
 
     public static void modifyItem() {
-        System.out.print("Current item number: ");
+        System.out.print("Current item: ");
         String itemNo = scanner.nextLine();
-        scanner.nextLine();
+//        scanner.nextLine();
         System.out.println("Enter replacement item: ");
         String newItem = scanner.nextLine();
         groceryList.modifyGroceryItem(itemNo, newItem);
     }
 
     public static void removeItem() {
-        System.out.print("Enter item number: ");
+        System.out.print("Enter item: ");
         String itemNo = scanner.nextLine();
         groceryList.removeGroceryItem(itemNo);
     }
@@ -81,5 +84,15 @@ public class Main {
         } else {
             System.out.println(searchItem + " is not in our list.");
         }
+    }
+
+    public static void processArrayList() {
+        ArrayList<String> newArray = new ArrayList<String>();
+        newArray.addAll(groceryList.getGroceryList());
+
+        ArrayList<String> nextArray = new ArrayList<String>(groceryList.getGroceryList());
+
+        String[] myArray = new String[groceryList.getGroceryList().size()];
+        myArray = groceryList.getGroceryList().toArray(myArray);
     }
 }
